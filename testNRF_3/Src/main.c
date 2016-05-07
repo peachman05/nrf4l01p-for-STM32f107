@@ -86,65 +86,54 @@ int main(void)
   MX_USART2_UART_Init();
 
   /* USER CODE BEGIN 2 */
+	
+	
+	/* ----------    NRF4L01p  Set Up  ----------------- */
 	initFirst();
-  /* USER CODE END 2 */
-	HAL_Delay(5000);
-	
-	channel(60);
 	channel(30);
-	while(__HAL_UART_GET_FLAG(&huart2,UART_FLAG_TC)==RESET);
-	HAL_UART_Transmit(&huart2, (uint8_t*)"ABCD" , 4 , 500);
-	HAL_Delay(300);
-	readRegByte(RF_CH);
-	
-	while(__HAL_UART_GET_FLAG(&huart2,UART_FLAG_TC)==RESET);
-	HAL_UART_Transmit(&huart2, (uint8_t*)"ABCD" , 4 , 500);
-	HAL_Delay(300);
-	
 	RXaddress("ABCDE");
-	readRegByte(SETUP_AW);
-	readRegByte(RX_ADDR_P1);
-	//TXaddress("EDCBA");
-	//	address(RX_ADDR_P0,_address);
-//	address(TX_ADDR, _address);
-	//readRegByte(RX_ADDR_P0);
-	readRegByte(RF_CH);
-	//readRegByte(TX_ADDR);
-	
-//	readReg(RX_ADDR_P1,dataRead,5);
+	TXaddress("EDCBA");
 	init();
+	
+	
+	
+  /* USER CODE END 2 */
+	
+
 	
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 	char message[32];
-	char messageSend[] ="peachman";	
+	char messageSend[] ="s02ie";	
 	
   while (1)
   {
-//  /* USER CODE END WHILE */
+  /* USER CODE END WHILE */
 				if(available() == true){
 					
-//							while(__HAL_UART_GET_FLAG(&huart2,UART_FLAG_TC)==RESET);
-//							HAL_UART_Transmit(&huart2, (uint8_t*)"DCBA" , 4 , 500);
-//							HAL_Delay(300);
-						read(); // ????????????????
-						int sizeStr = rxPL(message); // ??????????????????????????
-////						Serial.println(message);
-////						message="";
-//					
-						while(__HAL_UART_GET_FLAG(&huart2,UART_FLAG_TC)==RESET);
+						/*------   read     -------- */
+						read(); // read Data to buffer
+						int sizeStr = rxPL(message); // move data from buffer to char array
+					
+						while(__HAL_UART_GET_FLAG(&huart2,UART_FLAG_TC)==RESET);   // print via uart2
 						HAL_UART_Transmit(&huart2, (uint8_t*) message , sizeStr , 500);
-						HAL_Delay(300); 
-//						
-//						message[0] = 0;
-				}else{
-//							while(__HAL_UART_GET_FLAG(&huart2,UART_FLAG_TC)==RESET);
-//							HAL_UART_Transmit(&huart2, (uint8_t*)"CCCC" , 4 , 500);
-//							HAL_Delay(300);
+						//HAL_Delay(300); 
+					
+						//		message[0] = 0;
+					
+						/*--------------  transmit   -------------*/
+					
+						txPL(messageSend); // send Data to buffer
+						send(FAST_Speed); // send Data from buffer to another device [ FAST_Speed is Define in this file (It's 1) ]
+						
+				
 				}
 				
-//				txPL(messageSend);
-//				send(FAST_Speed);
+//					txPL(messageSend); // send Data to buffer
+//					send(FAST_Speed); // send Data from buffer to another device [ FAST_Speed is Define in this file (It's 1) ]
+					
+				
+				
   /* USER CODE BEGIN 3 */
 
   }

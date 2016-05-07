@@ -278,7 +278,9 @@ bool available(){
 		return false;
 	}
 	getFIFO();
-	
+	while(__HAL_UART_GET_FLAG(&huart2,UART_FLAG_TC)==RESET);
+	HAL_UART_Transmit(&huart2, (uint8_t*)&_fifo , 1 , 500);
+	HAL_Delay(300);
 	if(bitRead(_fifo,0)==0){
 		if(payLoadWidth()>32){
 			flushRX();
@@ -295,7 +297,9 @@ bool available(){
 			return true;
 		}
 	}else{
-		
+		while(__HAL_UART_GET_FLAG(&huart2,UART_FLAG_TC)==RESET);
+		HAL_UART_Transmit(&huart2, (uint8_t*)"DDDD" , 4 , 500);
+		HAL_Delay(300);
 		return false;
 	}	
 }

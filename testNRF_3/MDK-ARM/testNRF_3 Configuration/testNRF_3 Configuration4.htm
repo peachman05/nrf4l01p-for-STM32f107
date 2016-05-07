@@ -1,9 +1,9 @@
 <!doctype html public "-//w3c//dtd html 4.0 transitional//en">
 <html><head>
-<title>Static Call Graph - [testNRF_3 Configuration\testNRF_3 Configuration.axf]</title></head>
+<title>Static Call Graph - [testNRF_3 Configuration\testNRF_3 Configuration4.axf]</title></head>
 <body><HR>
-<H1>Static Call Graph for image testNRF_3 Configuration\testNRF_3 Configuration.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060061: Last Updated: Sat May 07 23:37:58 2016
+<H1>Static Call Graph for image testNRF_3 Configuration\testNRF_3 Configuration4.axf</H1><HR>
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060061: Last Updated: Sun May 08 00:03:51 2016
 <BR><P>
 <H3>Maximum Stack Usage =        256 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -399,8 +399,6 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
 <BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rxPL
-<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;available
-<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_OscConfig
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readRegByte
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;powerUp
@@ -622,7 +620,6 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rxPL
-<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;available
 <LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readRegByte
 </UL>
@@ -720,12 +717,10 @@ Global Symbols
 <LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RXaddress
 </UL>
 
-<P><STRONG><a name="[7b]"></a>available</STRONG> (Thumb, 144 bytes, Stack size 24 bytes, nrf24l01p.o(i.available))
-<BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = available &rArr; getFIFO &rArr; readRegByte &rArr; HAL_SPI_TransmitReceive &rArr; SPI_WaitOnFlagUntilTimeout
+<P><STRONG><a name="[7b]"></a>available</STRONG> (Thumb, 72 bytes, Stack size 8 bytes, nrf24l01p.o(i.available))
+<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = available &rArr; getFIFO &rArr; readRegByte &rArr; HAL_SPI_TransmitReceive &rArr; SPI_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit
-<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
-<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writeRegByte
+<BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writeRegByte
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;payLoadWidth
 <LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getFIFO
 <LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flushRX
@@ -891,7 +886,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[47]"></a>main</STRONG> (Thumb, 218 bytes, Stack size 64 bytes, main.o(i.main))
+<P><STRONG><a name="[47]"></a>main</STRONG> (Thumb, 198 bytes, Stack size 64 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 256<LI>Call Chain = main &rArr; SystemClock_Config &rArr; HAL_RCC_ClockConfig &rArr; HAL_InitTick &rArr; HAL_RCC_GetHCLKFreq &rArr; HAL_RCC_GetSysClockFreq
 </UL>
 <BR>[Calls]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit
@@ -909,7 +904,6 @@ Global Symbols
 <LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RXaddress
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 <LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_SPI2_Init
-<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 <LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
