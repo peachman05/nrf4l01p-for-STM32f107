@@ -46,7 +46,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>testNRF_3 Configuration\</OutputDirectory>
-          <OutputName>testNRF_3 Configuration</OutputName>
+          <OutputName>testNRF_3 Configuration4</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>1</CreateHexFile>
